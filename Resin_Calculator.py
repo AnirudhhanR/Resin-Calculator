@@ -39,6 +39,11 @@ def calculate_resin(loading_window, progress_bar):
         loading_window.destroy()  # Close the loading window
 
         resin_result.config(text=f"You will have {math.floor(total_resin)} resin by the time you start playing.\nHappy Grinding!")
+
+        # Calculate the time at which resin becomes 160
+        time_to_max_resin = (max_resin - resin_increment) * resin_per_increment
+        time_for_max_resin = current_time + timedelta(minutes=time_to_max_resin)
+        resin_result_time.config(text=f"Resin reaches 160 at: {time_for_max_resin.strftime('%H:%M:%S')}")
     except ValueError:
         progress_bar.stop()  # Stop the progress bar
         loading_window.destroy()  # Close the loading window
@@ -47,7 +52,7 @@ def calculate_resin(loading_window, progress_bar):
 # GUI setup
 root = Tk()
 root.title("Resin Calculator")
-root.geometry("400x250")
+root.geometry("400x300")
 
 instruction_label = Label(root, text="Enter current resin and target play time (24-hour format HH:MM):", pady=10)
 instruction_label.pack()
@@ -69,5 +74,8 @@ calculate_button.pack(pady=10)
 
 resin_result = Label(root, text="", font=("Arial", 12, "bold"))
 resin_result.pack()
+
+resin_result_time = Label(root, text="", font=("Arial", 12, "bold"))
+resin_result_time.pack()
 
 root.mainloop()
