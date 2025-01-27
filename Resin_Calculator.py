@@ -20,7 +20,7 @@ def calculate_resin(loading_window, progress_bar):
     try:
         resin_increment = int(resin_entry.get())
         target_time = time_entry.get()
-        max_resin = 160
+        max_resin = 200
 
         resin_per_increment = 8
         current_time = datetime.now()
