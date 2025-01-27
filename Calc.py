@@ -19,7 +19,7 @@ def calculate_resin(resin_increment, target_time, max_resin):
     total_resin = max(0, min(total_resin, max_resin))
     return total_resin
 
-MAX_RESIN = 160
+MAX_RESIN = 200
 resin_input = int(input("Enter current resin: "))
 target_time = input("Enter target play time (24-hour format HH:MM): ")
 resin_at_play_time = calculate_resin(resin_input, target_time, MAX_RESIN)
