@@ -40,10 +40,10 @@ def calculate_resin(loading_window, progress_bar):
 
         resin_result.config(text=f"You will have {math.floor(total_resin)} resin by the time you start playing.\nHappy Grinding!")
 
-        # Calculate the time at which resin becomes 160
+        # Calculate the time at which resin becomes 200
         time_to_max_resin = (max_resin - resin_increment) * resin_per_increment
         time_for_max_resin = current_time + timedelta(minutes=time_to_max_resin)
-        resin_result_time.config(text=f"Resin reaches 160 at: {time_for_max_resin.strftime('%H:%M:%S')}")
+        resin_result_time.config(text=f"Resin reaches 200 at: {time_for_max_resin.strftime('%H:%M:%S')}")
     except ValueError:
         progress_bar.stop()  # Stop the progress bar
         loading_window.destroy()  # Close the loading window
